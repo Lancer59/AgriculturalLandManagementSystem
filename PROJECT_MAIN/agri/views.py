@@ -25,7 +25,7 @@ def contact(request):
     comment=request.GET.get('comment')
 
     print("hi")
-    res = send_mail("Contact", "The contact had the name   "+str(name)+"   email:  "+str(email)+"    subject  "+str(subject)+"    comment     "+str(comment)+".", "ALMSproject123@gmail.com", ["ALMSproject123@gmail.com"])
+    res = send_mail("Contact", "The contact had the name   "+str(name)+"   email:  "+str(email)+"    subject  "+str(subject)+"    comment     "+str(comment)+".", "#enter_your_email_here", ["#enter_your_email_here"])
     str3='''
     <h2>Your contact was mailed to the admin</h2>
      <a href="/home"><button type = "button" class = "btn btn-dark" style="font-size:20px;font-weight:bold; font-family:Arial;"> Go back to home page </button></a>
@@ -126,7 +126,7 @@ def ureg(request):
 
     u.save()
     u=Broker.objects.get(address=Addres)
-    res = send_mail("Regsitration", "Congratulations!. Your registration is successfull and your Broker id is "+str(u.BrokerID), "ALMSproject123@gmail.com", [Addres])
+    res = send_mail("Regsitration", "Congratulations!. Your registration is successfull and your Broker id is "+str(u.BrokerID), "#enter_your_email_here", [Addres])
 
 
     return render(request,'brokerloginpage.html')
@@ -147,7 +147,7 @@ def uregB(request):
 
     u.save()
     u=Buyer.objects.get(Baddress=Addres)
-    res = send_mail("Regsitration", "Congratulations!. Your registration is successfull and your Buyer id is "+str(u.BuyerID), "ALMSproject123@gmail.com", [Addres])
+    res = send_mail("Regsitration", "Congratulations!. Your registration is successfull and your Buyer id is "+str(u.BuyerID), "#enter_your_email_here", [Addres])
 
     return render(request,'buyerloginpage.html')
 
@@ -168,7 +168,7 @@ def uregS(request):
 
     u.save()
     u=Seller.objects.get(Saddress=Addres)
-    res = send_mail("Regsitration", "Congratulations!. Your registration is successfull and your Seller id is "+str(u.SellerID), "ALMSproject123@gmail.com", [Addres])
+    res = send_mail("Regsitration", "Congratulations!. Your registration is successfull and your Seller id is "+str(u.SellerID), "#enter_your_email_here", [Addres])
     return render(request,'sellerloginpage.html')
 
 
@@ -232,7 +232,7 @@ def Sadd(request):
     a = Amenities.objects.get(Address=Address)
     c = Seller.objects.get(Sname=Sname)
     email=c.Saddress
-    res = send_mail("LAND ADDED TO SELLING LIST", "Congratulations!. Your land has been successfully added to selling list of ALMS and your Reference-ID is "+str(a.AmenitiesID)+"     Address:   "+str(a.Address)+"     Soil_type:    "+str(a.Soil_type)+"     water_sources:    "+str(a.water_sources)+"     Land_area:    "+str(a.Land_area)+"     suitable_crop:    "+str(a.suitable_crop)+"     Climate_zone:    "+str(a.weather)+"      protection_type:    "+str(a.protection_type)+"     Amount in ₹:    "+str(a.Amount), "ALMSproject123@gmail.com", [email])
+    res = send_mail("LAND ADDED TO SELLING LIST", "Congratulations!. Your land has been successfully added to selling list of ALMS and your Reference-ID is "+str(a.AmenitiesID)+"     Address:   "+str(a.Address)+"     Soil_type:    "+str(a.Soil_type)+"     water_sources:    "+str(a.water_sources)+"     Land_area:    "+str(a.Land_area)+"     suitable_crop:    "+str(a.suitable_crop)+"     Climate_zone:    "+str(a.weather)+"      protection_type:    "+str(a.protection_type)+"     Amount in ₹:    "+str(a.Amount), "#enter_your_email_here", [email])
     return HttpResponse(str3)
 
 def SellerAddLand(request):
@@ -403,7 +403,7 @@ def uorder(request):
     # template = 'orderdetail.html'
     # context = {'ono' : ono,'Address':Address,'Bname':Bname}
     # pdf = render_to_pdf(template, context)
-    # email = EmailMessage("Order", "Land brought", "ALMSproject123@gmail.com", [email])
+    # email = EmailMessage("Order", "Land brought", "#enter_your_email_here", [email])
     # email.content_subtype = "pdf"
     # email.attach('Land_Brought', pdf, 'application/pdf')
     # res = email.send()
@@ -422,7 +422,7 @@ def uorder(request):
     a = Amenities.objects.get(AmenitiesID=ono)
     c = Buyer.objects.get(Bname=Bname)
     email=c.Baddress
-    res = send_mail("LAND BROUGHT!", "Congratulations!. You have successfully brought a land from the selling list of ALMS and the land details are---- Reference-ID is "+str(a.AmenitiesID)+"     Address:   "+str(a.Address)+"     Soil_type:    "+str(a.Soil_type)+"     water_sources:    "+str(a.water_sources)+"    Land_area:    "+str(a.Land_area)+"     suitable_crop:    "+str(a.suitable_crop)+"     Climate_zone:    "+str(a.weather)+"      protection_type:    "+str(a.protection_type)+"     Amount in ₹:    "+str(a.Amount), "ALMSproject123@gmail.com", [email])
+    res = send_mail("LAND BROUGHT!", "Congratulations!. You have successfully brought a land from the selling list of ALMS and the land details are---- Reference-ID is "+str(a.AmenitiesID)+"     Address:   "+str(a.Address)+"     Soil_type:    "+str(a.Soil_type)+"     water_sources:    "+str(a.water_sources)+"    Land_area:    "+str(a.Land_area)+"     suitable_crop:    "+str(a.suitable_crop)+"     Climate_zone:    "+str(a.weather)+"      protection_type:    "+str(a.protection_type)+"     Amount in ₹:    "+str(a.Amount), "#enter_your_email_here", [email])
     #The bellow code is used to delete the lands which are brought if removed it can be used to update the agri_containss database
     #
     record = Amenities.objects.get(AmenitiesID = ono)
@@ -501,7 +501,7 @@ def border(request):
     # template = 'orderdetail.html'
     # context = {'ono' : ono,'Bname':Bname,'Brname':Brname,'Brphone_number':Brphone_number,}
     # pdf = render_to_pdf(template, context)
-    # email = EmailMessage("Order", "Broker Booked", "ALMSproject123@gmail.com", [email])
+    # email = EmailMessage("Order", "Broker Booked", "#enter_your_email_here", [email])
     # email.content_subtype = "pdf"
     # email.attach('Broker_Booked', pdf, 'application/pdf')
     # res = email.send()
@@ -520,7 +520,7 @@ def border(request):
     a = Broker.objects.get(BrokerID=ono)
     c = Buyer.objects.get(Bname=Bname)
     email=c.Baddress
-    res = send_mail("BROKER BOOKED", "Congratulations!. You just booked a broker to help you in buying  your desired land, the details are-----     Broker-ID:    "+str(a.BrokerID)+"     Name:    "+str(a.Brname)+"     Phone number:    "+str(a.Brphone_number)+"     E-mail:    "+str(a.address)+".", "ALMSproject123@gmail.com", [email])
+    res = send_mail("BROKER BOOKED", "Congratulations!. You just booked a broker to help you in buying  your desired land, the details are-----     Broker-ID:    "+str(a.BrokerID)+"     Name:    "+str(a.Brname)+"     Phone number:    "+str(a.Brphone_number)+"     E-mail:    "+str(a.address)+".", "#enter_your_email_here", [email])
     return HttpResponse(str3)
 
 
@@ -617,7 +617,7 @@ def getotpbr(request):
     ss+=address+":"+str(otp)
     f.write(ss)
     f.close()
-    send_mail("OTP", "Your OTP is "+str(otp)+"  .If you don't recognize or expect this email, please don't share the above code with anyone", "ALMSproject123.com", [address])
+    send_mail("OTP", "Your OTP is "+str(otp)+"  .If you don't recognize or expect this email, please don't share the above code with anyone", "#enter_your_email_here", [address])
     return HttpResponse('Mail sent')
 
 #Get change of password html page
@@ -674,7 +674,7 @@ def getotpb(request):
     ss+=Baddress+":"+str(otp)
     f.write(ss)
     f.close()
-    send_mail("OTP", "Your OTP is "+str(otp)+"  .If you don't recognize or expect this email, please don't share the above code with anyone", "ALMSproject123.com", [Baddress])
+    send_mail("OTP", "Your OTP is "+str(otp)+"  .If you don't recognize or expect this email, please don't share the above code with anyone", "#enter_your_email_here", [Baddress])
     return HttpResponse('Mail sent')
 
 #Get change of password html page
@@ -728,7 +728,7 @@ def getotps(request):
     ss+=Saddress+":"+str(otp)
     f.write(ss)
     f.close()
-    send_mail("OTP", "Your OTP is "+str(otp)+"  .If you don't recognize or expect this email, please don't share the above code with anyone", "ALMSproject123.com", [Saddress])
+    send_mail("OTP", "Your OTP is "+str(otp)+"  .If you don't recognize or expect this email, please don't share the above code with anyone", "#enter_your_email_here", [Saddress])
     return HttpResponse('Mail sent')
 
 #Get change of password html page

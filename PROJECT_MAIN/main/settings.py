@@ -148,9 +148,9 @@ media_root = os.path.join(BASE_DIR, "agri/media")
 
 EMAIL_HOST='smtp.gmail.com'  
 
-EMAIL_HOST_USER='ALMSproject123@gmail.com'
+EMAIL_HOST_USER='#enter_your_email_here'
 
-EMAIL_HOST_PASSWORD='ALMS@project@123'
+EMAIL_HOST_PASSWORD='#enter_your_email_password_here'
 
 EMAIL_PORT=465
 
