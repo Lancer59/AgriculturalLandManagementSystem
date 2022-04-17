@@ -438,7 +438,7 @@ def uorder(request):
 def lands(request):
     return render(request,"lands.html")
 
-
+#
 #diaplay all brokers
 
 def bro(request):
