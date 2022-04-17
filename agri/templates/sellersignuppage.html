@@ -1,0 +1,55 @@
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+
+<script>
+
+$(document).ready(function() {
+    $("#f").submit(function(e)
+{
+    e.preventDefault();
+    console.log("here")
+
+    usrname=$("#usrname").val() 
+    psw=$("#psw").val()
+    Address=$("#Address").val() 
+    phone=$("#phone").val()
+
+    //alert(usmnames","+pw+""+email+""+phone) 
+    $.get( "http://localhost:8000/uregS", {usrname:usrname,psw:psw,Address:Address,phone:phone }).done(function(data)
+    {
+        //alert(data);
+        $("body").html(data)
+    });
+});
+});
+</script>
+
+{% load static %}
+    <title>Signup</title>
+    <link rel="stylesheet" href="{%static "CSS/sellersignuppage.css" %}">
+<body>
+    <a href="/home"><button id="se"  type="submit" style="background-color:red;color:#FFFFFF;"><h1>ALMS<h1></button></a>
+    <div class="signup">
+        <h1 class="h1">SELLER</h1>
+        <h2 class="h2">Have an account,<a href="\sellerloginpage">Sign In</a></h2>
+        {% comment %} <h2 class="h2">Have an account,<a href="\sellerloginpage">Sign In</a></h2> {% endcomment %}
+      
+        <form id="f">
+            <fa class="fname">Full Name</fa>
+            <input class="fname1" placeholder="Seller Full Name " name="name" id="usrname" type="text">
+            <pa class="pswd">Password</pa>
+            <input type="password" class="pswd1" placeholder="**********"  name="psw" id="psw">
+            <ad class="add">E-mail</ad>
+            <input type="address" class="add1" placeholder="______@______" name="Address" id="Address">
+            <ph class="phno">Phone Number</ah>
+            <input type="Phonenumber" class="phno1" placeholder="without +91"  name="phone" id="phone" type="text" >
+         
+            <button class="button"  type="submit" >Sign Up</button>
+        </form>
+    </div>
+    <div>
+        <img src="{%static "images/bg.png" %}" alt="Background IMAGE" class="img">
+    </div>
+</body>
+</html>
+

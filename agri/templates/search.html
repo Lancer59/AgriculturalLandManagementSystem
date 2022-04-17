@@ -1,0 +1,53 @@
+{% extends "layout.html" %}
+{% block title %}
+SEARCH
+{% endblock %}
+{% block content %} 
+{% comment %} WORKS {% endcomment %}
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script>
+    $(document).ready(function(){
+        $("#ser").click(function(e)
+        {
+            e.preventDefault();
+            address=$("#address").val()
+          
+            $.get("http://localhost:8000/Bsearch",{address:address}).done(function(data)
+            {
+                $("#res").html(data)
+            });
+        });
+  
+    });
+</script>
+
+<!DOCTYPE html>
+<html>
+<title>W3.CSS</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<body>
+
+
+    <a href="/lands"><button id="se"  type="submit" style="background-color:red;color:#FFFFFF;"><h1>BACK</h1></button></a>
+<div class="w3-container w3-black w3-center header"> 
+    
+  <h2>LANDS SEARCH</h2>
+</div>
+{% comment %} x {% endcomment %}
+<div class="w3-container w3-xlarge w3-red w3-center">
+  <input type="text" placeholder="Enter address" id="address" >
+   <a href="/search"><button> <i class="fa fa-search " id="ser"></i></button></a>
+</div>
+
+
+<div class="header" id="res">
+    <br>
+ </div>
+  
+
+</body>
+</html>
+
+{% endblock %}

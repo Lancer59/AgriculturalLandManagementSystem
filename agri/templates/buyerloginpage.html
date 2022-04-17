@@ -1,0 +1,49 @@
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script>
+  $(document).ready(function () {
+    $("#f").submit(function (e) {
+      e.preventDefault();
+
+      Bname = $("#Bname").val();
+      psw = $("#psw").val();
+      //alert(tit)
+      $.get("http://localhost:8000/uloginB", { Bname:Bname, psw:psw }).done(
+        function (data) {
+          $("body").html(data) 
+        }
+      );
+    });
+  });
+</script>
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login</title>
+    <link rel="stylesheet" href="{%static "CSS/buyerloginpage.css" %}">
+</head>
+<body>
+  <a href="/home"><button id="se"  type="submit" style="background-color:red;color:#FFFFFF;"><h1>ALMS<h1></button></a>
+    <div class="login">
+        <h1 class="h1">WELCOME BACK! BUYER</h1>
+        <h2 class="h2">Don’t have a account,<a href="\buyersignuppage">Sign Up</a></h2>
+        
+        <form id="f">
+        <ua class="username">Username</ua>
+        <input type="username" class="uinput" placeholder="______________@gmail.com" name="Bname" id="Bname" required >
+        <pa class="password">Password</pa>
+        <input type="password" class="pinput" placeholder="**********" name="psw" id="psw" required>
+        <a class="flink" href="/bpass">Forgot password?</a>
+        <button class="button" id="sd" type="submit" >Sign in</button>
+        </form>
+
+    </div>
+    <div>        
+        <img src="{%static "images/bg.png" %}" alt="Background IMAGE" class="img">
+    </div>
+</body>
+</html>

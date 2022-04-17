@@ -1,0 +1,59 @@
+
+
+
+{% load static %}
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script>
+    $(document).ready(function(){
+    
+        $("#f").submit(function(e)
+        {
+        
+        e.preventDefault();
+        
+        usname= $("#usname").val() 
+        psw= $("#psw").val()
+        
+        //alert(tit) 
+        $.get("http://localhost:8000/ulogin", {usname:usname,psw:psw}).done(function(data)
+        {
+           $("body").html(data)    
+        });        
+});        
+});
+</script>
+    
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login</title>
+    <link rel="stylesheet" type="text/css"  href="{%static "CSS/brokerloginpage.css" %}">
+</head>
+
+<body>
+    <a href="/home"><button id="se"  type="submit" style="background-color:red;color:#FFFFFF;"><h1>ALMS<h1></button></a>
+    <div class="login">
+        
+        <h1 class="h1"> WELCOME BACK! BROKER </h1>
+        <h2 class="h2">Don’t have a account,<a href="\brokersignuppage">Sign Up</a></h2>
+   
+        <form id="f">
+        <ua class="username">Username</ua>
+        <input  class="uinput" type="text"  placeholder="______________@gmail.com"  name="usname" id="usname" required >
+        <pa class="password">Password</pa>
+        <input type="password" class="pinput" placeholder="**********"  name="psw" id="psw" required>
+        <a class="flink" href="/brpass">Forgot password?</a>
+        <button class="button" id="sd" type="submit" >Sign in</button>
+        </form>
+        
+    </div>
+    <div>        
+        <img src="{%static "images/bg.png" %}" alt="Background IMAGE" class="img">
+    </div>
+</body>
+</html>
+
+

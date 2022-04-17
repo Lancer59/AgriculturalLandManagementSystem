@@ -1,0 +1,73 @@
+@import url('https://fonts.googleapis.com/css2?family=Lora:wght@500&display=swap');
+
+
+
+.navbar-an{
+    float:right;
+    padding-top: 1cm;
+    padding-right: 0cm;
+   }
+
+
+
+
+
+h2{
+    font-size: 45px;
+    font-weight: bolder;
+    font-family: 'Lora', serif;
+
+    color: black;
+}
+
+.pe{
+    font-size: 27px;
+    color: black;
+    font-family: 'Lora', serif;
+    padding-top: 6px;
+    font-weight: bold;
+}
+
+
+
+.card {
+    border-radius:20px;
+    height: 610px;
+    width: 450px;
+    border: 4px solid transparent;
+    border-color: rgb(201, 26, 26);
+    -webkit-border-radius:20px;
+    -moz-border-radius:20px;
+    -ms-border-radius:20px;
+    -o-border-radius:20px;
+}
+
+
+
+
+
+.content {
+    padding-top: 20px;
+    text-align: center;
+    color: whitesmoke;
+}
+
+
+.grid-container {
+    padding-top: 2cm;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-gap: 25px;
+    margin-top: 15px;
+    margin-left: 20px;
+    margin-right: 20px;
+    margin-bottom: 30px;
+    padding-left: 70px;
+    border-radius: 5px;
+    -webkit-border-radius: 5px;
+    -moz-border-radius: 5px;
+    -ms-border-radius: 5px;
+    -o-border-radius: 5px;
+    padding-bottom: 2cm;
+}
+

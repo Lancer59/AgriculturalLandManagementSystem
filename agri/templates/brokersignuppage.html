@@ -1,0 +1,60 @@
+{% load static %}
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+
+<script>
+
+$(document).ready(function() {
+    $("#f").submit(function(e)
+{
+    e.preventDefault();
+
+    usrname=$("#usrname").val() 
+    psw=$("#psw").val()
+    Address=$("#Address").val() 
+    phone=$("#phone").val()
+
+    //alert(usmnames","+pw+""+email+""+phone) 
+    $.get("http://localhost:8000/ureg/",{usrname:usrname,psw:psw,Address:Address,phone:phone}).done(function(data)
+    {
+        //alert(data);
+        $("body").html(data)
+
+    });
+
+});
+
+});
+</script>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Signup</title>
+    <link rel="stylesheet" href="{%static "CSS/brokersignuppage.css" %}" >
+</head>
+<body>
+    <a href="/home"><button id="se"  type="submit" style="background-color:red;color:#FFFFFF;"><h1>ALMS<h1></button></a>
+    <div class="signup">
+        <h1 class="h1">BROKER</h1>
+        <h2 class="h2">Have an account,<a href="\brokerloginpage">Sign In</a></h2>
+
+        <form id="f">
+        <fa class="fname">Full Name</fa>
+        <input class="fname1" placeholder="Broker Full Name" name="name1" id="usrname" type="text">
+        <pa class="pswd">Password</pa>
+        <input type="password" class="pswd1" placeholder="**********" name="psw1" id="psw">
+        <ad class="add">E-mail</ad>
+        <input type="address" class="add1" placeholder="______@______" name="Address1" id="Address" >
+        <ph class="phno">Phone Number</ah>
+        <input type="Phonenumber" class="phno1" placeholder="without +91" name="phone1" id="phone" type="text">
+      
+        <button class="button" type="submit" >Sign Up</button>
+        </form>
+    </div>
+    <div>
+        <img src="{%static "images/bg.png" %}" alt="Background IMAGE" class="img">
+    </div>
+</body>
+</html>

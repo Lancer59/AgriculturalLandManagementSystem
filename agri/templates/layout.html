@@ -1,0 +1,31 @@
+{% comment %} INHERITANCE {% endcomment %}
+{% load static %}
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8"/>
+    <title>{% block title %}{% endblock %}</title>
+    
+    <link rel="stylesheet" href="{%static "CSS/layout.css" %}">
+</head>
+
+<body>
+<div class="navbar">
+    <a href="\home" class="w3-bar-item w3-button"><b><u>ALMS</u></b></a>
+    <a href="\sellerloginpage" class="w3-bar-item w3-button"><b>Seller login</b></a>
+    <a href="\brokerloginpage" class="w3-bar-item w3-button"><b>Broker login</b></a>
+    <a href="\buyerloginpage" class="w3-bar-item w3-button"><b>Buyer login</b></a>
+    <a href="\home" class="w3-bar-item w3-button"><b>About</b></a>
+    <a href="\home" class="w3-bar-item w3-button"><b>Contact</b></a>
+</div>
+
+<div class="body-content">
+    {% block content %}
+    {% endblock %}
+    <hr/>
+    <footer>
+        <p>&copy; 2022</p>
+    </footer>
+</div>
+</body>
+</html>

@@ -1,0 +1,96 @@
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+
+<script>
+
+$(document).ready(function() {
+    $("#f").submit(function(e)
+{
+    e.preventDefault();
+    console.log("here")
+
+    Address=$("#Address").val() 
+    Soil_type=$("#Soil_type").val()
+    water_sources=$("#water_sources").val() 
+    Land_area=$("#Land_area").val()
+    suitable_crop=$("#suitable_crop").val()
+    weather=$("#weather").val()
+    protection_type=$("#protection_type").val()
+    Amount=$("#Amount").val()
+
+    //alert(usmnames","+pw+""+email+""+phone) 
+    $.get( "http://localhost:8000/SaddS", {Address:Address,Soil_type:Soil_type,water_sources:water_sources,Land_area:Land_area,suitable_crop:suitable_crop,weather:weather,protection_type:protection_type,Amount:Amount }).done(function(data)
+    {
+        //alert(data);
+        $("body").html(data)
+    });
+});
+});
+</script>
+
+
+{%load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Seller</title>
+    <link rel="stylesheet"   href="{%static "CSS/addLand.css" %}">
+</head>
+    <title>
+        ADD NEW LAND
+    </title>
+    
+    <body class="main">
+        <div class= "home11">
+            <a href="/home"><button style="background-color:red; color:white;" >ALMS</button></a>
+            </div>
+        <div class="head" >
+        <h1>
+            ADD NEW LAND DETAILS:
+        </h1>
+        </div>
+    <form class="form" id="f">
+    <p>
+        <span class="address">Address: </span>
+        <input type="text" placeholder="town,pincode" id="Address" class="Address1"> 
+    </p>
+    <p>
+        <span class="Land_Area">Land Area: </span>
+        <input type="text" placeholder="Sq.ft" id="Land_area" class="Land_area1"> 
+    </p>
+        <span class="Soil_Type">Soil Type: </span>
+        <input type="text" placeholder="Ex: Sandy,Clay" id="Soil_type" class="Soil_type1"> 
+    <p>
+        <span class="Water_Sources">Water Sources: </span>
+        <input type="text" placeholder="Ex: River,pond,Tubewell" id="water_sources" class="water_sources1"> 
+    </p>
+        <span class="Suitable_Crop">Suitable Crop: </span>
+        <input type="text" placeholder="Ex: Paddy,Wheat,Sugarcane" id="suitable_crop" class="suitable_crop1"> 
+    <p>
+        <span class="Weather">Climatic Zone: </span>
+        <input type="text" placeholder="Ex: Dry,Humid,Cold,Clowdy,Mixed" class="weather1" id="weather"> 
+    </p>
+        <span class="Protection_Type" >Protection Type: </span>
+        <input type="text" placeholder="Barbed or Fenced" id="protection_type" class="protection_type1">  
+    <p>
+        <span class="Distance_From_Mainroad">Price of land: </span>
+        <input type="text"placeholder="₹" class="Distance_From_Mainroad1" id="Amount">  
+    <div class="save" >
+        <button type="submit" class="save1" >SAVE</button>
+    </div>
+    <div class= "reset">
+    <button type="reset" class="reset1" >CLEAR</button>
+    </div>
+    
+    
+    </form>       
+    
+    <img src="{%static "images/bg.png" %}" alt="MAIN IMAGE" class="main_img">
+
+    </body>
+</html>
+
+
+
