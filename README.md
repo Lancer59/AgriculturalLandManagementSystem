@@ -13,7 +13,8 @@ check the code for the comment
 
 #enter_your_email_here
 
-and change it to the required email address of the admin
 
+and change it to the required email address of the admin
+this is present in settings.py and views.py
 
 
